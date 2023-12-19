@@ -60,3 +60,78 @@ $ yarn run start:prod
 
 1. **JWT Tokens:** Implement JWT (JSON Web Tokens) for authentication and authorization across services. NestJS provides robust authentication mechanisms.
 2. **HTTPS:** Ensure secure communication between microservices using HTTPS to prevent data breaches.
+
+---
+
+---
+
+# **Order Creation API Documentation**
+
+### **Endpoint**
+
+- **URL**: [`http://localhost:3000/order/create`](http://localhost:3000/order/create)
+- **Method**: `POST`
+
+### **Request Body**
+
+- **Format**: JSON
+- **Fields**:
+  - `user_id` (string)
+  - `orderId` (string)
+  - `products` (array of strings)
+  - `payment` (boolean)
+
+#### Example Request Body
+
+```javascript
+{
+  "user_id": "dsfgjrgj123",
+  "orderId": "23fsdfr%$243",
+  "products": ["234234","2352df3", "dgsd@$@$234"],
+  "payment": true
+}
+```
+
+### **Error Handling**
+
+- **Response Code**: `400 Bad Request`
+- **Response Body**:
+
+```javascript
+{
+  "message": [
+    "user_id must be a string",
+    "orderId must be a string",
+    "products must be an array",
+    "payment must be a boolean value"
+  ],
+  "error": "Bad Request",
+  "statusCode": 400
+}
+```
+
+### **Successful Response**
+
+- **Response Format**: JSON Array
+- **Example Response**:
+
+```javascript
+[
+  {
+    user_id: 'dsfgjrgj123',
+    orderId: '23fsdfr%$243',
+    products: ['234234', '2352df3', 'dgsd@$@$234'],
+    payment: true,
+  },
+  {
+    user_id: 'dsfgjrgj123',
+    orderId: '23fsdfr%$243',
+    products: ['234234', '2352df3', 'dgsd@$@$234'],
+    payment: true,
+  },
+];
+```
+
+---
+
+This condensed version highlights the essential details for the API endpoint without extensive elaboration. Adjustments can be made based on your specific documentation needs.
